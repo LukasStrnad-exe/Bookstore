@@ -1,4 +1,15 @@
 body {
     margin: 0;
     background-color: #05171E;
+    color: white;
+}
+
+header{
+    display: flex;
+    align-items: center;
+    background-color: #082129;
+}
+
+.red_color{
+    color: #EB5F53;
 }
