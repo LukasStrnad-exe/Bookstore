@@ -2,6 +2,12 @@ body {
     margin: 0;
     background-color: #05171E;
     color: white;
+    font-family: "Roboto", sans-serif;
+    font-size: 8px;
+}
+
+h3{
+    font-size: 16px;
 }
 
 header{
@@ -9,8 +15,56 @@ header{
     align-items: center;
     justify-content: flex-start;
     background-color: #082129;
+    gap: 10px;
+    height: 40px;
+}
+
+header h3{
+    display: flex;
+    align-items: center;
+}
+
+header img{
+    height: 30px;
 }
 
 .red_color{
     color: #EB5F53;
+}
+
+.header_writing{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-weight: bold;
+    width: 100%;
+}
+
+.container_books{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
+
+.book{
+    width: 30%;
+    background-color: #EB5F53;
+    border-radius: 4px;
+}
+
+.titel{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book_img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.book_img img{
+    width: 70%;
 }
