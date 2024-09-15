@@ -48,8 +48,6 @@ header img{
 }
 
 .book{
-    width: 30%;
-    background-color: #EB5F53;
     border-radius: 4px;
 }
 
@@ -57,14 +55,24 @@ header img{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #0D3240;
+    border-bottom: #6AA8C3;
+    border-bottom-style: solid;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.book_img{
+.showcase{
     display: flex;
     align-items: center;
     justify-content: center;
+    background-color: #124758;
+    box-shadow: inset 0px 0px 35px 18px rgba(0,0,0,0.29);
+    border-bottom: #6AA8C3;
+    border-bottom-style: solid;
+    height: 120px;
 }
 
-.book_img img{
-    width: 70%;
+.showcase img{
+    height: 100%;
 }
