@@ -76,3 +76,39 @@ header img{
 .showcase img{
     height: 100%;
 }
+
+.infos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #0D3240;
+    border-bottom: #6AA8C3;
+    border-bottom-style: solid;
+}
+
+.flex_space_between{
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+}
+
+.likes{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.likes img{
+    height: 16px;
+}
+
+.description{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 5px;
+    width: 90%;
+    margin-bottom: 10px;
+}
