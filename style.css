@@ -51,7 +51,9 @@ button{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 25px;
+    margin: 25px;
+    flex-wrap: wrap;
+    gap: 25px;
 }
 
 .book{
@@ -159,7 +161,7 @@ button{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 }
 
 .comment_write input{

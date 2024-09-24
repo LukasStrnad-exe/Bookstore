@@ -4,7 +4,7 @@ let books = [
       "author": "Clara Meer",
       "likes": 1250,
       "liked": true,
-      "price": 19.99,
+      "price": "19.99",
       "publishedYear": 2018,
       "genre": "Fantasy",
       "comments": [
@@ -35,7 +35,7 @@ let books = [
       "author": "Maximilian Schwarz",
       "likes": 980,
       "liked": false,
-      "price": 14.50,
+      "price": "14.50",
       "publishedYear": 2021,
       "genre": "Fantasy",
       "comments": []
@@ -45,7 +45,7 @@ let books = [
       "author": "Laura Blau",
       "likes": 1520,
       "liked": true,
-      "price": 22.95,
+      "price": "22.95",
       "publishedYear": 2019,
       "genre": "Romantik",
       "comments": [
@@ -76,7 +76,7 @@ let books = [
       "author": "Alexander Weiss",
       "likes": 750,
       "liked": false,
-      "price": 18.00,
+      "price": "18.00",
       "publishedYear": 2020,
       "genre": "Science-Fiction",
       "comments": [
@@ -95,7 +95,7 @@ let books = [
       "author": "Sabine Grün",
       "likes": 1300,
       "liked": true,
-      "price": 16.75,
+      "price": "16.75",
       "publishedYear": 2017,
       "genre": "Fantasy",
       "comments": []
@@ -105,7 +105,7 @@ let books = [
       "author": "Philipp Silber",
       "likes": 890,
       "liked": false,
-      "price": 12.30,
+      "price": "12.30",
       "publishedYear": 2022,
       "genre": "Science-Fiction",
       "comments": [
@@ -124,7 +124,7 @@ let books = [
       "author": "Oliver Schwarz",
       "likes": 1450,
       "liked": true,
-      "price": 21.00,
+      "price": "21.00",
       "publishedYear": 2015,
       "genre": "Science-Fiction",
       "comments": [
@@ -139,7 +139,7 @@ let books = [
       "author": "Elena Gold",
       "likes": 920,
       "liked": false,
-      "price": 17.50,
+      "price": "17.50",
       "publishedYear": 2020,
       "genre": "Fantasy",
       "comments": [
@@ -154,7 +154,7 @@ let books = [
       "author": "Emilia Rot",
       "likes": 1800,
       "liked": true,
-      "price": 19.99,
+      "price": "19.99",
       "publishedYear": 2016,
       "genre": "Romantik",
       "comments": [
@@ -173,3 +173,110 @@ let books = [
       ]
     }
   ]
+
+function render(){
+
+  document.getElementById("containerBooks").innerHTML =``;
+
+  for(i = 0; i <books.length ; i++){ 
+
+    let book = books[i];
+  
+    document.getElementById("containerBooks").innerHTML +=`
+              ${renderTitel(book)}
+              ${renderShowcase()}
+              ${renderInfos(book)}
+              ${renderCommentSection(book,i)}
+    `;
+  }
+}
+
+function renderTitel(book){
+  return `
+  <div class="book">
+    <div class="titel">
+      <h3>${book ["name"]}</h3>
+    </div> `
+}
+
+function renderShowcase(){
+  return `
+    <div class="showcase">
+      <img src="img/book_muster.png" alt="book">
+    </div>`
+}
+
+function renderInfos(book){
+  return `
+    <div class="infos">
+      <div class="flex_space_between">
+        <div class="price">
+          <h3><p class="red_color">${book ["price"]}€</p></h3>
+        </div>
+        <div class="likes">
+          ${book ["likes"]}
+          <img src="img/hearth_white.png" alt="">
+        </div>
+      </div>
+      <div class="description">
+        <div class="description_key">
+          <b>Author <br>
+          Erscheinungsjahr <br>
+          Genre</b>
+        </div>
+        : <br>
+        : <br>
+        : 
+        <div class="description_value">
+          ${book ["author"]} <br>
+          ${book ["publishedYear"]} <br>
+          ${book ["genre"]}
+        </div>
+      </div>
+    </div>
+  `
+}
+
+function renderCommentSection(book){
+  return `
+    <div class="comment_section">
+      	<div class="comment_headline">
+          <b>Kommentare:</b>
+        </div>
+              ${renderComments(book)}
+        <div class="comment_overview">
+          <div class="comment_user">
+            [Bookworm84]
+          </div>
+          <div class="comments">
+            :Eine romantische Geschichte, die mein Herz berührt und mich zum Nachdenken gebracht hat.
+          </div>
+        </div>
+        <div class="comment_write">
+          <label for="comment_input">
+            <input placeholder="Schreibe dein Kommentar..." type="text">
+          </label>
+          <button>
+            <img src="img/senden.png" alt="senden">
+          </button>
+        </div>
+      </div>
+    </div>
+  `
+}
+
+function renderComments(book,i){
+
+  let CommentUser = book[comments[i["name"]]]
+
+    return`
+      <div class="comment_overview">
+        <div class="comment_user">
+          [${CommentUser}]
+        </div>
+        <div class="comments">
+            :Sprich deutsch du Hurensohn
+        </div>
+      </div>
+    `
+}
