@@ -186,8 +186,9 @@ function render(){
               ${renderTitel(book)}
               ${renderShowcase()}
               ${renderInfos(book)}
-              ${renderCommentSection(book,i)}
+              ${renderCommentSection(i)}
     `;
+    renderComment(book,i);
   }
 }
 
@@ -237,20 +238,15 @@ function renderInfos(book){
   `
 }
 
-function renderCommentSection(book){
+function renderCommentSection(i){
+
+
   return `
     <div class="comment_section">
       	<div class="comment_headline">
           <b>Kommentare:</b>
         </div>
-              ${renderComments(book)}
-        <div class="comment_overview">
-          <div class="comment_user">
-            [Bookworm84]
-          </div>
-          <div class="comments">
-            :Eine romantische Geschichte, die mein Herz berührt und mich zum Nachdenken gebracht hat.
-          </div>
+        <div class="comments_container" id="commentsContainer${i}">
         </div>
         <div class="comment_write">
           <label for="comment_input">
@@ -263,20 +259,71 @@ function renderCommentSection(book){
       </div>
     </div>
   `
+  
 }
 
 function renderComments(book,i){
+  let comment_length = book.comments;
+  for(y = 0; y <comment_length.length ; y++){ 
 
-  let CommentUser = book[comments[i["name"]]]
+  let user = book.comments[y].name;
 
-    return`
-      <div class="comment_overview">
-        <div class="comment_user">
-          [${CommentUser}]
-        </div>
-        <div class="comments">
-            :Sprich deutsch du Hurensohn
-        </div>
-      </div>
-    `
+  return`
+  <div class="comment_overview">
+    <div class="comment_user">
+      [${user}]
+    </div>
+    <div class="comments">
+        :Sprich deutsch du Hurensohn
+    </div>
+  </div>`
+  }
+}
+
+function renderComment(book, i){
+  
+
+  let comment_length = book.comments;
+
+  if (comment_length == 0){
+    document.getElementById("commentsContainer"+i).innerHTML +=`
+        ${renderComment0()}
+      `;
+      
+  } else {
+    for(y = 0; y <comment_length.length ; y++){ 
+  
+      let user = book.comments[y].name;
+      let comment = book.comments[y].comment;
+    
+      document.getElementById("commentsContainer"+i).innerHTML +=`
+        ${renderComment1(user,comment)}
+      `;
+      }
+  }
+}
+
+function renderComment0(){
+  return`
+  <div class="comment_overview">
+    <div class="comment_user">
+      
+    </div>
+    <div class="comments">
+        Noch keine kommentare vorhanden.
+    </div>
+  </div>`
+}
+
+
+function renderComment1(user,comment){
+  return`
+  <div class="comment_overview">
+    <div class="comment_user">
+      [${user}]:
+    </div>
+    <div class="comments">
+        ${comment}
+    </div>
+  </div>`
 }

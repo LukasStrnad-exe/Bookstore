@@ -144,6 +144,15 @@ button{
     margin-bottom: 10px;
 }
 
+.comments_container{
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+}
+
 .comment_overview{
     display: flex;
     align-items: baseline;
