@@ -174,6 +174,8 @@ let books = [
     }
   ]
 
+load();
+
 function render(){
   document.getElementById("containerBooks").innerHTML =``;
   for(i = 0; i <books.length ; i++){
@@ -185,6 +187,7 @@ function render(){
               ${renderCommentSection(i,book)}
     `;
     renderComment(book,i);
+    save();
   }
 }
 
@@ -305,6 +308,7 @@ function addComment(i){
   } else {
     book.comments.push({ name: "User", comment: input });
   	}
+    save();
     render();
 }
 
@@ -344,5 +348,15 @@ function incrementLikes(i) {
     book.likes--;
     book.liked = false;
   }
+  save();
   render();
+}
+
+function save() {
+  localStorage.setItem("books", JSON.stringify(books));
+}
+
+function load(){
+  let data = localStorage.getItem("books");
+  books = JSON.parse(data);
 }
