@@ -212,7 +212,7 @@ function renderInfos(book){
         </div>
         <div class="likes">
           ${book ["likes"]}
-          <img src="img/hearth_white.png" alt="">
+          ${renderHearth(book,i)}
         </div>
       </div>
       <div class="description">
@@ -306,4 +306,43 @@ function addComment(i){
     book.comments.push({ name: "User", comment: input });
   	}
     render();
+}
+
+function renderHearth(book,i){
+  if (book.liked) {
+    return`
+      <button id="redhearth${i}" onclick="dNone('whitehearth${i}','redhearth${i}'); incrementLikes(${i})">
+        <img src="img/hearth_red.png" alt="liked">
+      </button>
+      <button id="whitehearth${i}" class="d-none" onclick="dNone('redhearth${i}','whitehearth${i}'); incrementLikes(${i})">
+        <img src="img/hearth_white.png" alt="not liked">
+      </button>
+      `
+  } else {
+    return`
+      <button id="redhearth${i}" class="d-none" onclick="dNone('whitehearth${i}','redhearth${i}'); incrementLikes(${i})">
+        <img   src="img/hearth_red.png" alt="liked">
+      </button>
+      <button id="whitehearth${i}" onclick="dNone('redhearth${i}','whitehearth${i}'); incrementLikes(${i})">
+        <img src="img/hearth_white.png" alt="not liked">
+      </button>
+      `
+  }
+}
+
+function dNone(add, remove) { 
+  document.getElementById(remove).classList.add('d-none');
+  document.getElementById(add).classList.remove('d-none');
+}
+
+function incrementLikes(i) {
+  let book = books[i];
+  if (!book.liked) {
+    book.likes++;
+    book.liked = true;
+  } else {
+    book.likes--;
+    book.liked = false;
+  }
+  render();
 }

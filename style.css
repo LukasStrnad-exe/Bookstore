@@ -187,11 +187,11 @@ button{
     height: 20px;
 }
 
-input:focus { 
+input:focus{ 
     outline: none;
  }
 
-::placeholder {
+::placeholder{
     color: #ffffffb7;
     font-size: 8px;
     opacity: 1;
@@ -200,4 +200,8 @@ input:focus {
 
 .comment_write img{
     height: 18px;
+}
+
+.d-none{
+    display: none;
 }
