@@ -361,6 +361,6 @@ function load() {
   if (data) {
     books = JSON.parse(data);
   } else {
-    // Optionally initialize `books` with a default set if there's no data
+  
   }
 }
