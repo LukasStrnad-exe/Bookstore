@@ -356,7 +356,11 @@ function save() {
   localStorage.setItem("books", JSON.stringify(books));
 }
 
-function load(){
+function load() {
   let data = localStorage.getItem("books");
-  books = JSON.parse(data);
+  if (data) {
+    books = JSON.parse(data);
+  } else {
+    // Optionally initialize `books` with a default set if there's no data
+  }
 }
